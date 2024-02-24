@@ -32,22 +32,22 @@ namespace BankAccountNS
         {
             if (amount > m_balance)
             {
-                throw new ArgumentOutOfRangeException("amount");
+                throw new ArgumentOutOfRangeException("amount", amount, "Debit amount exceeds balance");
             }
 
             if (amount < 0)
             {
-                throw new ArgumentOutOfRangeException("amount");
+                throw new ArgumentOutOfRangeException("amount", amount, "Debit amount is less than zero");
             }
 
-            m_balance += amount; // intentionally incorrect code
+            m_balance -= amount; // Código correto
         }
 
         public void Credit(double amount)
         {
             if (amount < 0)
             {
-                throw new ArgumentOutOfRangeException("amount");
+                throw new ArgumentOutOfRangeException("amount", amount, "Credit amount is less than zero");
             }
 
             m_balance += amount;
